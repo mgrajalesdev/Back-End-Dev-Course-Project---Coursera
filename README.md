@@ -1,1 +1,3 @@
-User Management API
+<div align="center">
+  User Management API
+</div>
