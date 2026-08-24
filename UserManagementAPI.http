@@ -1,0 +1,65 @@
+@HostAddress = http://localhost:5286
+
+# @name login
+POST {{HostAddress}}/api/auth/login
+Content-Type: application/json
+
+###
+GET {{HostAddress}}/api/users/
+Accept: application/json
+Authorization: Bearer {{login.response.body.token}}
+
+###
+GET {{HostAddress}}/api/users/0
+Accept: application/json
+Authorization: Bearer {{login.response.body.token}}
+
+###
+GET {{HostAddress}}/api/users/1
+Accept: application/json
+Authorization: Bearer {{login.response.body.token}}
+
+###
+GET {{HostAddress}}/api/users/2
+Accept: application/json
+Authorization: Bearer {{login.response.body.token}}
+
+###
+GET {{HostAddress}}/api/users/3
+Accept: application/json
+Authorization: Bearer {{login.response.body.token}}
+
+###
+GET {{HostAddress}}/api/users/4
+Accept: application/json
+Authorization: Bearer {{login.response.body.token}}
+
+###
+POST {{HostAddress}}/api/users/
+Content-Type: application/json
+Authorization: Bearer {{login.response.body.token}}
+
+{
+    "FirstName": "Scottie",
+    "LastName": "P",
+    "Email": "sp@hotmail.com", 
+    "IsActive": true
+}
+
+###
+PUT {{HostAddress}}/api/users/2
+Content-Type: application/json
+Authorization: Bearer {{login.response.body.token}}
+
+{
+    "Id": 2,
+    "FirstName": "Mike",
+    "LastName": "Jordan",
+    "Email": "mj23@hotmail.com",
+    "IsActive": false
+}
+
+###
+DELETE  {{HostAddress}}/api/users/5
+Content-Type: application/json
+Authorization: Bearer {{login.response.body.token}}
